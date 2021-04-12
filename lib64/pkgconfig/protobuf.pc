@@ -1,0 +1,11 @@
+prefix=/home/meng.479/Projects/grpc
+exec_prefix=/home/meng.479/Projects/grpc
+libdir=/home/meng.479/Projects/grpc/lib64
+includedir=/home/meng.479/Projects/grpc/include
+
+Name: Protocol Buffers
+Description: Google's Data Interchange Format
+Version: 3.13.0.0
+Libs: -L${libdir} -lprotobuf -lpthread
+Cflags: -I${includedir} -lpthread
+Conflicts: protobuf-lite

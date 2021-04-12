@@ -1435,10 +1435,15 @@ static bool tcp_flush(grpc_tcp* tcp, grpc_error** error) {
           GRPC_SLICE_LENGTH(tcp->outgoing_buffer->slices[outgoing_slice_idx]) -
           tcp->outgoing_byte_idx;
       sending_length += iov[iov_size].iov_len;
+
+      printf("iov_idx = %d, iov_len = %d\n", iov_size, iov[iov_size].iov_len);
+
       outgoing_slice_idx++;
       tcp->outgoing_byte_idx = 0;
     }
     GPR_ASSERT(iov_size > 0);
+
+    printf("sending_length = %d\n\n", sending_length);
 
     msg.msg_name = nullptr;
     msg.msg_namelen = 0;
@@ -1697,7 +1702,7 @@ grpc_endpoint* grpc_tcp_create(grpc_fd* em_fd,
   static constexpr bool kZerocpTxEnabledDefault = false;
   int tcp_read_chunk_size = GRPC_TCP_DEFAULT_READ_SLICE_SIZE;
   int tcp_max_read_chunk_size = 4 * 1024 * 1024;
-  int tcp_min_read_chunk_size = 256;
+  int tcp_min_read_chunk_size = 8 * 1024;
   bool tcp_tx_zerocopy_enabled = kZerocpTxEnabledDefault;
   int tcp_tx_zerocopy_send_bytes_thresh =
       grpc_core::TcpZerocopySendCtx::kDefaultSendBytesThreshold;

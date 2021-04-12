@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package benchmark;
+
+service BENCHMARK {
+    rpc latencyTest (Chunk) returns (Chunk) {}
+    rpc throughputTest (Chunk) returns (Chunk) {}
+    rpc helloThere (Chunk) returns (Chunk) {}
+}
+
+message Chunk {
+    bytes data = 1;
+}

@@ -1,0 +1,13 @@
+prefix=/home/meng.479/Projects/grpc
+exec_prefix=/home/meng.479/Projects/grpc
+libdir=/home/meng.479/Projects/grpc/lib
+sharedlibdir=/home/meng.479/Projects/grpc/lib
+includedir=/home/meng.479/Projects/grpc/include
+
+Name: zlib
+Description: zlib compression library
+Version: 1.2.11
+
+Requires:
+Libs: -L${libdir} -L${sharedlibdir} -lz
+Cflags: -I${includedir}
