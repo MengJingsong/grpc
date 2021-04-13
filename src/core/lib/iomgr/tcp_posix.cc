@@ -1436,14 +1436,14 @@ static bool tcp_flush(grpc_tcp* tcp, grpc_error** error) {
           tcp->outgoing_byte_idx;
       sending_length += iov[iov_size].iov_len;
 
-      printf("iov_idx = %d, iov_len = %d\n", iov_size, iov[iov_size].iov_len);
+      // printf("iov_idx = %d, iov_len = %d\n", iov_size, iov[iov_size].iov_len);
 
       outgoing_slice_idx++;
       tcp->outgoing_byte_idx = 0;
     }
     GPR_ASSERT(iov_size > 0);
 
-    printf("sending_length = %d\n\n", sending_length);
+    // printf("sending_length = %d\n\n", sending_length);
 
     msg.msg_name = nullptr;
     msg.msg_namelen = 0;
